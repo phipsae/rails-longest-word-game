@@ -3,10 +3,13 @@
   <button type="button" class="btn btn-primary letter-button"> <%= n %></button>
 <% } %>
 <br>
+
 <p>What is the longest word you can find?</p>
 <form class="form-inline" action="/score" method="post">
   <div class="form-group mx-sm-3 mb-2">
     <input type="word" name="word" class="form-control" id="wordInput" placeholder="Enter word">
+    <%= hidden_field_tag(:tag_list, @letters) %>
+    <input id="tags_list" name="tags_list" type="hidden" />
   </div>
   <button type="submit" class="btn btn-primary mb-2 submit-button">Submit word</button>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
